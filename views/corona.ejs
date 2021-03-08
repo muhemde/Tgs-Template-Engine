@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include("partials/head.ejs") %>
+</head>
+<body>
+    <%- include("partials/navbar.ejs") %>
+    <div class="container mt-5">
+        <% corona.forEach(data => { %>
+            <li
+              <% if (data.attributes.Kasus_Meni >= 3000) { %>
+               style="color: red"
+              <% } else if (data.attributes.Kasus_Meni >= 2000) {%>
+                style="color: pink"
+              <% } else { %>
+                style="color: blue"
+              <% } %>
+            >
+              <%= data.attributes.Provinsi %>: <%= data.attributes.Kasus_Meni %>
+            </li>
+          <% }) %>
+    </div>
+</body>
+</html>
